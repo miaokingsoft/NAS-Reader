@@ -1,0 +1,44 @@
+# 忽略 IDE 相关文件
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# 忽略操作系统生成的文件
+Thumbs.db
+.DS_Store
+
+# 忽略数据库文件
+*.db
+*.sqlite
+
+# 忽略日志文件
+*.log
+logs/
+
+# 忽略临时文件
+tmp/
+temp/
+
+# 忽略环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 忽略 Composer 依赖
+/vendor/
+composer.lock
+
+# 忽略 Node.js 依赖
+/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 忽略 .trae 目录（Trae AI 工具相关）
+.trae/

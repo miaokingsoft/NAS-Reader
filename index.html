@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小文章浏览网站</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">小文章浏览</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="搜索文章..." autofocus>
+                <button id="search-btn">搜索</button>
+            </div>
+            <div class="nav-controls">
+                <div id="sort-tags" class="sort-tags">
+                    <button class="sort-tag active" data-sort="newest">最新</button>
+                    <button class="sort-tag" data-sort="hits">热门</button>
+                    <button class="sort-tag" data-sort="title">标题</button>
+                    <button class="sort-tag" data-sort="stored">关注</button>
+                </div>
+                <button id="theme-toggle" title="切换主题">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container">
+        <!-- 文章列表容器 -->
+        <div id="articles-container" class="articles-grid">
+            <!-- 文章卡片将通过JavaScript动态加载 -->
+        </div>
+        
+        <!-- 分页控件 -->
+        <div id="pagination" class="pagination">
+            <button id="prev-page" class="page-btn" disabled>上一页</button>
+            <div id="page-numbers" class="page-numbers"></div>
+            <button id="next-page" class="page-btn">下一页</button>
+        </div>
+    </main>
+    
+    <!-- 底部空间，确保内容不被固定的分页组件遮挡 -->
+    <div class="bottom-spacer" style="height: 100px;"></div>
+
+    <!-- 文章详情模态框 -->
+    <div id="article-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title"></h2>
+                <div class="header-actions">
+                     <button id="modal-delete" class="delete-btn" title="删除文章">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                    </button>
+                    
+                    <button id="modal-store" class="store-btn" title="收藏/取消收藏">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                    </button>
+                    <span id="modal-hits">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </span>
+                   
+
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content" class="article-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
+</body>
+</html>
