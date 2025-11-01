@@ -5,10 +5,10 @@
 const DEFAULT_PAGE_SIZE = 60; // 每页默认显示条数
 class Database {
     // 保持原有配置，优化连接方式
-    private $host = 'localhost';       // 数据库主机IP（如群晖NAS的IP）
-    private $db_name = 'Books';        // 数据库名
-    private $username = 'admin';       // 数据库用户名
-    private $password = 'password';    // 数据库密码
+    private $host = '192.168.0.88';
+    private $db_name = 'sexbook';
+    private $username = 'phpuser';
+    private $password = 'b[YrrY8([]Q]uwdQ';
     public $conn;
 
     // 获取数据库连接 - 优化配置，减少超时
