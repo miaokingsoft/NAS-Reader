@@ -16,6 +16,7 @@ Thumbs.db
 *.sqlite
 # 忽略敏感数据库配置文件
 db.php
+api/config.php
 
 
 # 忽略日志文件

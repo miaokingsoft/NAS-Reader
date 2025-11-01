@@ -63,16 +63,43 @@ CREATE TABLE `bookhub` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
-### 数据库连接配置
+### 数据库配置文件
 
-修改 `api/db.php` 文件中的数据库连接信息：
+项目使用独立的配置文件管理数据库连接信息，以提高安全性。配置文件位置：`api/config.php`。
+
+**注意**：配置文件包含敏感信息，已添加到.gitignore中，请确保不会将其提交到版本控制系统。
+
+#### 配置文件说明
+
+1. **创建配置文件**：在`api`目录下创建`config.php`文件（如果不存在）
+2. **配置内容**：
 
 ```php
-private $host = 'localhost';       // 数据库主机IP（如群晖NAS的IP）
-private $db_name = 'Books';        // 数据库名
-private $username = 'admin';       // 数据库用户名
-private $password = 'password';    // 数据库密码
+<?php
+// 数据库配置文件 - 请勿提交到版本控制系统
+// 注意：请根据实际环境修改以下配置信息
+
+// 数据库连接信息
+return array(
+    'host' => '192.168.0.88',       // 数据库主机IP（如群晖NAS的IP）
+    'port' => 3307,                 // 数据库端口
+    'db_name' => 'sexbook',         // 数据库名
+    'username' => 'phpuser',        // 数据库用户名
+    'password' => 'your_password'   // 数据库密码
+);
 ```
+
+3. **参数说明**：
+   - `host`：数据库服务器地址
+   - `port`：数据库端口（默认3307，MariaDB常用端口）
+   - `db_name`：数据库名称
+   - `username`：数据库用户名
+   - `password`：数据库密码
+
+4. **配置文件使用方法**：
+   - 系统会自动从`config.php`加载配置
+   - 确保配置文件权限设置正确，避免未授权访问
+   - 在生产环境中使用强密码并限制访问权限
 
 ## 群晖NAS部署方法
 

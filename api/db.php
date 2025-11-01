@@ -1,13 +1,30 @@
 <?php
+// 数据库连接配置 - 优化版
+
 // 全局配置常量
 const DEFAULT_PAGE_SIZE = 60; // 每页默认显示条数
+
+// 引入数据库配置文件
+$config = require_once 'config.php';
+
 class Database {
-    // 保持原有配置，优化连接方式
-    private $host = '192.168.0.88';
-    private $db_name = 'sexbook';
-    private $username = 'phpuser';
-    private $password = 'b[YrrY8([]Q]uwdQ';
+    // 通过配置文件获取连接信息
+    private $host;
+    private $port;
+    private $db_name;
+    private $username;
+    private $password;
     public $conn;
+    
+    // 构造函数初始化配置
+    public function __construct() {
+        global $config;
+        $this->host = $config['host'];
+        $this->port = $config['port'];
+        $this->db_name = $config['db_name'];
+        $this->username = $config['username'];
+        $this->password = $config['password'];
+    }
 
     // 获取数据库连接 - 优化配置，减少超时
     public function getConnection() {
@@ -23,7 +40,7 @@ class Database {
             ];
             
             // 使用优化的连接字符串
-            $dsn = "mysql:host={$this->host};port=3307;dbname={$this->db_name};charset=utf8mb4";
+            $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->db_name};charset=utf8mb4";
             $this->conn = new PDO($dsn, $this->username, $this->password, $options);
             
             // 设置字符集
