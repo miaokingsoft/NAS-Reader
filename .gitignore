@@ -14,6 +14,9 @@ Thumbs.db
 # 忽略数据库文件
 *.db
 *.sqlite
+# 忽略敏感数据库配置文件
+db.php
+
 
 # 忽略日志文件
 *.log
