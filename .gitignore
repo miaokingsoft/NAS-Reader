@@ -30,6 +30,9 @@ temp/
 .env.test.local
 .env.production.local
 
+# 忽略数据库配置文件
+api/db.php
+
 # 忽略 Composer 依赖
 /vendor/
 composer.lock
