@@ -1,5 +1,7 @@
 # 群晖小文章浏览网站（NAS-Reader）
 
+[English](https://www.zdoc.app/en/miaokingsoft/NAS-Reader)
+
 这是一个基于PHP和MariaDB开发的个人小文章阅读平台，具备响应式设计和主题切换功能，支持文章浏览、搜索、收藏及管理等操作，建议配合n8n定时采集工具实现自动化文章入库，完美适配群晖NAS环境部署，为您打造专属的离线知识库。
 
 ## 版本信息
